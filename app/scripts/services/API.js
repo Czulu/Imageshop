@@ -1,8 +1,19 @@
-﻿angular.module('imageshopApp').factory('API', function ($http) {
+﻿'use strict';
+
+angular.module('imageshopApp').factory('API', function ($http) {
     return {
-        'newRequest': function (path, conf) {
-            return $http.get('http://en.wikipedia.org/w/api.php' + path, conf);
-        },
-        'baseURL': 'http://en.wikipedia.org/w/api.php'
+        'newSearch': function (query) {
+            return $http.jsonp('http://en.wikipedia.org//w/api.php', {
+                params: {
+                    'action': 'query',
+                    'list': 'allimages',
+                    'format': 'json',
+                    'aifrom': query.toString(),
+                    'aiprop': 'url|mediatype',
+                    'ailimit': '500', //max allowed by Wikimedia API
+                    'callback': 'JSON_CALLBACK'
+                }
+            });
+        }
     };
-})
+});

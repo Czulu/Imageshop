@@ -20,10 +20,22 @@
                 <div class="form-group">
                     <input type="text" class="form-control" placeholder="Search for images" ng-model="searchQuery">
                 </div>
-                <button type="submit" class="btn btn-success">Search</button>
+                <button type="submit" class="btn btn-success" ng-click="findImages(searchQuery)">Search</button>
             </form>
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
 </nav>
 <div class="search-results">
+    <div class="alert" ng-show="networkError">
+        <strong>Warning!</strong> There's been an error while accessing the database, please try again
+    </div>
+    <div>
+        <dir-pagination-controls boundary-links="true" on-page-change="pageChangeHandler(newPageNumber)" template-url="main/pagination_controls.html"></dir-pagination-controls>
+    </div>
+    <ul>
+        <li dir-paginate="item in searchResults | itemsPerPage: 10">{{ item }}</li>
+    </ul>
+    <div>
+        <dir-pagination-controls boundary-links="true" on-page-change="pageChangeHandler(newPageNumber)" template-url="main/pagination_controls.html"></dir-pagination-controls>
+    </div>
 </div>

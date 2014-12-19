@@ -1,3 +1,49 @@
+@font-face {
+    font-family: 'djgross-webfont';
+    src: url('../fonts/djgross-webfont.eot');
+    src: url('../fonts/djgross-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/djgross-webfont.woff2') format('woff2'),
+         url('../fonts/djgross-webfont.woff') format('woff'),
+         url('../fonts/djgross-webfont.ttf') format('truetype'),
+         url('../fonts/djgross-webfont.svg#astonishedregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'gongnormal';
+    src: url('../fonts/gongn___-webfont.eot');
+    src: url('../fonts/gongn___-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/gongn___-webfont.woff2') format('woff2'),
+         url('../fonts/gongn___-webfont.woff') format('woff'),
+         url('../fonts/gongn___-webfont.ttf') format('truetype'),
+         url('../fonts/gongn___-webfont.svg#gongnormal') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+html {
+  background: url(../images/background.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.navbar {
+    margin-bottom: 0 !important;
+    background-color: black;
+    border-color: black;
+    border-radius: 0;
+    background-image: url(../images/navbar-background.jpg)
+}
+
+.btn {
+    font-family: gongnormal;
+}
+
 .navbar-main .btn-primary {
     margin-left: 3px;
 }
@@ -8,4 +54,36 @@
 
 .navbar-default .navbar-collapse, .navbar-default .navbar-form {
     border-color: transparent;
+    box-shadow: none;
+    color: white;
+}
+
+.navbar-brand {
+    color: white !important;
+    font-family: djgross-webfont;
+    font-size: 35px;
+}
+
+@media all and (max-width:765px) {
+
+    .btn {
+        width: 100%;
+    }
+}
+
+.search-results {
+    position: relative;
+    width: 100%;
+}
+
+.alert {
+    font-family: gongnormal;
+    background-color: none;
+    border-radius: 0;
+    text-align: center;
+    background: rgba(200, 54, 54, 0.5);
+}
+
+.alert button {
+    opacity: 1;
 }

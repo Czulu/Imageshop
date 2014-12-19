@@ -17,19 +17,20 @@ angular
     'ngResource',
     'ngRoute',
     'ngSanitize',
-    'ngTouch'
+    'ngTouch',
+    'angularUtils.directives.dirPagination'
   ])
   .config(function ($routeProvider) {
-    $routeProvider
-      .when('/', {
-        templateUrl: 'main/main.html',
-        controller: 'MainCtrl'
-      })
-      .when('/checkout', {
-        templateUrl: 'checkout/checkout.html',
-        controller: 'CheckoutCtrl'
-      })
-      .otherwise({
-        redirectTo: '/'
-      });
+      $routeProvider
+        .when('/', {
+            templateUrl: 'main/main.html',
+            controller: 'MainCtrl'
+        })
+        .when('/checkout', {
+            templateUrl: 'checkout/checkout.html',
+            controller: 'CheckoutCtrl'
+        })
+        .otherwise({
+            redirectTo: '/'
+        });
   });
