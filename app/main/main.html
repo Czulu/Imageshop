@@ -29,13 +29,18 @@
     <div class="alert" ng-show="networkError">
         <strong>Warning!</strong> There's been an error while accessing the database, please try again
     </div>
-    <div>
+    <div class="text-center">
         <dir-pagination-controls boundary-links="true" on-page-change="pageChangeHandler(newPageNumber)" template-url="main/pagination_controls.html"></dir-pagination-controls>
     </div>
-    <ul>
-        <li dir-paginate="item in searchResults | itemsPerPage: 10">{{ item }}</li>
-    </ul>
-    <div>
+    <div class="img-container" image-grid=".image" image-grid-watcher="searchResults">
+        <div class="image" dir-paginate="item in searchResults.data | itemsPerPage: 20" current-page="searchResults.currentPage">
+            <img alt="" src="../images/loading.gif" ng-src="{{item.url}}" height="280"></img>
+        </div>
+    </div>
+    <div class="text-center">
         <dir-pagination-controls boundary-links="true" on-page-change="pageChangeHandler(newPageNumber)" template-url="main/pagination_controls.html"></dir-pagination-controls>
     </div>
+</div>
+<div class="intro" ng-hide="searchResults.data">
+    Type search phrase in field above and press search button to find images
 </div>
