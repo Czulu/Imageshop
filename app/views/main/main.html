@@ -13,14 +13,14 @@
 
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <a href="#/checkout">
-                <button class="btn btn-primary navbar-btn navbar-right" type="button">Checkout <span class="badge">{{cartItems}}</span></button>
+            <a href="#/cart">
+                <button class="btn btn-success navbar-btn navbar-right" type="button">Cart <span class="badge">{{cartItemsCount}}</span></button>
             </a>
             <form class="navbar-form navbar-right" role="search">
                 <div class="form-group">
                     <input type="text" class="form-control" placeholder="Search for images" ng-model="searchQuery">
                 </div>
-                <button type="submit" class="btn btn-success" ng-click="findImages(searchQuery)">Search</button>
+                <button type="submit" class="btn btn-primary" ng-click="findImages(searchQuery)">Search</button>
             </form>
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
@@ -30,17 +30,18 @@
         <strong>Warning!</strong> There's been an error while accessing the database, please try again
     </div>
     <div class="text-center">
-        <dir-pagination-controls boundary-links="true" on-page-change="pageChangeHandler(newPageNumber)" template-url="main/pagination_controls.html"></dir-pagination-controls>
+        <dir-pagination-controls boundary-links="true" template-url="views/main/pagination_controls.html"></dir-pagination-controls>
     </div>
     <div class="img-container" image-grid=".image" image-grid-watcher="searchResults">
-        <div class="image" dir-paginate="item in searchResults.data | itemsPerPage: 20" current-page="searchResults.currentPage">
+        <div class="image" dir-paginate="item in searchResults.data | itemsPerPage: 20" current-page="searchResults.currentPage" ng-click="openDetails(item)">
             <img alt="" src="../images/loading.gif" ng-src="{{item.url}}" height="280"></img>
         </div>
     </div>
     <div class="text-center">
-        <dir-pagination-controls boundary-links="true" on-page-change="pageChangeHandler(newPageNumber)" template-url="main/pagination_controls.html"></dir-pagination-controls>
+        <dir-pagination-controls boundary-links="true" template-url="views/main/pagination_controls.html"></dir-pagination-controls>
     </div>
 </div>
 <div class="intro" ng-hide="searchResults.data">
-    Type search phrase in field above and press search button to find images
+    Type search phrase in the field above and press search button to find images
 </div>
+<div class="background" ng-show="searchResults.data"></div>

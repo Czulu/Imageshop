@@ -15,7 +15,7 @@ angular.module('imageshopApp').directive('imageGrid', function () {
                         minMargin: 20,
                         maxMargin: 20,
                         itemSelector: attrs.imageGrid, //images container selector
-                        firstItemClass: "first-item"
+                        firstItemClass: 'first-item'
                     };
                     jQuery(element).rowGrid(options);
                 }, 1000);
@@ -23,13 +23,13 @@ angular.module('imageshopApp').directive('imageGrid', function () {
 
             applyGrid();
 
-            scope.$watch(function (scope) {
-                return scope.searchResults;
+            scope.$watch(function () {
+                return scope[attrs.imageGridWatcher];
             }, function (newValue, oldValue) {
                 if (newValue !== oldValue) {
                     applyGrid();
                 }
             }, true);
         }
-    }
+    };
 });

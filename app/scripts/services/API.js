@@ -9,7 +9,7 @@ angular.module('imageshopApp').factory('API', function ($http) {
                     'list': 'allimages',
                     'format': 'json',
                     'aifrom': query.toString(),
-                    'aiprop': 'url|mediatype',
+                    'aiprop': 'url|mediatype|user',
                     'ailimit': '500', //max allowed by Wikimedia API
                     'callback': 'JSON_CALLBACK'
                 }

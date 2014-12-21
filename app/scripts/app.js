@@ -18,17 +18,18 @@ angular
     'ngRoute',
     'ngSanitize',
     'ngTouch',
-    'angularUtils.directives.dirPagination'
+    'angularUtils.directives.dirPagination',
+    'ui.bootstrap'
   ])
   .config(function ($routeProvider) {
       $routeProvider
         .when('/', {
-            templateUrl: 'main/main.html',
+            templateUrl: 'views/main/main.html',
             controller: 'MainCtrl'
         })
-        .when('/checkout', {
-            templateUrl: 'checkout/checkout.html',
-            controller: 'CheckoutCtrl'
+        .when('/cart', {
+            templateUrl: 'views/cart/cart.html',
+            controller: 'CartCtrl'
         })
         .otherwise({
             redirectTo: '/'
