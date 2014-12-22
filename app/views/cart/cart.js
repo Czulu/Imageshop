@@ -1,6 +1,7 @@
 'use strict';
 
 angular.module('imageshopApp').controller('CartCtrl', function ($scope, ShoppingCart) {
+    $scope.deletedImages = {};
     $scope.cartItems = ShoppingCart.getContents();
     $scope.cartItemsCount = ShoppingCart.getSize();
 

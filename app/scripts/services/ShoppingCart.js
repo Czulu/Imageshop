@@ -24,7 +24,6 @@ angular.module('imageshopApp').factory('ShoppingCart', function () {
             var cart = JSON.parse(localStorage.imageShopCart),
                 key = id.toString();
             delete cart[key];
-            console.log(cart);
             localStorage.imageShopCart = JSON.stringify(cart);
         },
         getContents: function () {
