@@ -1,4 +1,4 @@
-<nav class="navbar navbar-default navbar-checkout" role="navigation">
+﻿<nav class="navbar navbar-default navbar-checkout" role="navigation">
     <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
@@ -8,13 +8,13 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#/checkout">Cart</a>
+            <a class="navbar-brand" href="#/checkout">Checkout</a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <a href="#/checkout">
-                <button class="btn btn-success navbar-btn navbar-right" type="button" ng-class="{disabled: cartItemsCount===0}">Checkout</button>
+            <a href="#/cart">
+                <button class="btn btn-primary navbar-btn navbar-right" type="button">Cart</button>
             </a>
             <a href="#/">
                 <button class="btn btn-primary navbar-btn navbar-right" type="button">Main Page</button>
@@ -22,17 +22,4 @@
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
 </nav>
-<div class="cart">
-    <div class="description">Click image to remove or reinsert it or click checkout button to proceed</div>
-    <div class="img-container" image-grid=".image" image-grid-watcher="">
-        <div class="image" ng-repeat="item in cartItems track by $index" ng-click="toggleItem(item)">
-            <img alt="" src="../images/loading.gif" height="280"
-                 ng-src="{{item.url}}"
-                 ng-class="{'remove-image': !isActive, 'remove-image': isActive}"
-                 ng-init="isActive = false"
-                 ng-click="isActive = !isActive">
-            </img>
-        </div>
-    </div>
-</div>
 <div class="background"></div>

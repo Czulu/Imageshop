@@ -1,17 +1,15 @@
 'use strict';
 
 angular.module('imageshopApp')
-  .controller('MainCtrl', function ($scope, API, Cart, $rootScope, $modal) {
+    .controller('MainCtrl', function ($scope, API, ShoppingCart, $rootScope, $modal) {
 
-      /*
-      using rootscope to prevent wiping search results by view change
-      */
+      //using rootscope to prevent wiping search results by view change
       $rootScope.searchResults = $rootScope.searchResults || {};
       $rootScope.searchResults.data = $rootScope.searchResults.data || null;
       $rootScope.searchResults.currentPage = $rootScope.searchResults.currentPage || 1;
 
       $scope.networkError = false;
-      $scope.cartItemsCount = Cart.getSize();
+      $scope.cartItemsCount = ShoppingCart.getSize();
 
       $scope.openDetails = function (item) {
           var modalInstance = $modal.open({
@@ -26,8 +24,8 @@ angular.module('imageshopApp')
           });
 
           modalInstance.result.then(function (item) {
-              Cart.addItem(item);
-              $scope.cartItemsCount = Cart.getSize();
+              ShoppingCart.addItem(item);
+              $scope.cartItemsCount = ShoppingCart.getSize();
           });
       };
 
@@ -37,9 +35,8 @@ angular.module('imageshopApp')
                   leng = data.query.allimages.length;
 
               $scope.networkError = false;
-              /*
-              filtering videos from data returned by API
-              */
+
+              //removing videos from data returned by API
               for (var i = 0; i < leng; i++) {
                   if (data.query.allimages[i].mediatype === 'BITMAP') {
                       results.push(data.query.allimages[i]);

@@ -14,7 +14,7 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <a href="#/cart">
-                <button class="btn btn-success navbar-btn navbar-right" type="button">Cart <span class="badge">{{cartItemsCount}}</span></button>
+                <button class="btn btn-success navbar-btn navbar-right" type="button" ng-class="{disabled: cartItemsCount===0}">Cart <span class=" badge">{{cartItemsCount}}</span></button>
             </a>
             <form class="navbar-form navbar-right" role="search">
                 <div class="form-group">
@@ -25,6 +25,9 @@
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
 </nav>
+<div class="description description-main" ng-hide="searchResults.data || networkError">
+    Welcome to our shop
+</div>
 <div class="search-results">
     <div class="alert" ng-show="networkError">
         <strong>Warning!</strong> There's been an error while accessing the database, please try again
@@ -40,8 +43,5 @@
     <div class="text-center">
         <dir-pagination-controls boundary-links="true" template-url="views/main/pagination_controls.html"></dir-pagination-controls>
     </div>
-</div>
-<div class="intro" ng-hide="searchResults.data">
-    Type search phrase in the field above and press search button to find images
 </div>
 <div class="background" ng-show="searchResults.data"></div>

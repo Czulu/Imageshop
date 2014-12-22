@@ -1,6 +1,6 @@
 ﻿'use strict';
 
-angular.module('imageshopApp').factory('Cart', function () {
+angular.module('imageshopApp').factory('ShoppingCart', function () {
     localStorage.imageShopCart = localStorage.imageShopCart || '{}';
 
     return {
@@ -12,7 +12,7 @@ angular.module('imageshopApp').factory('Cart', function () {
             var cart = JSON.parse(localStorage.imageShopCart),
                 key = item.title;
 
-            //check if this image has not been already purchased
+            //check if this item has not been already purchased
             if (cart.hasOwnProperty(key)) {
                 return;
             } else {
@@ -24,6 +24,7 @@ angular.module('imageshopApp').factory('Cart', function () {
             var cart = JSON.parse(localStorage.imageShopCart),
                 key = id.toString();
             delete cart[key];
+            console.log(cart);
             localStorage.imageShopCart = JSON.stringify(cart);
         },
         getContents: function () {

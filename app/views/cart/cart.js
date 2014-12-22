@@ -1,34 +1,19 @@
 'use strict';
 
-angular.module('imageshopApp').controller('CartCtrl', function ($scope, Cart, $modal) {
-    $scope.cartItems = Cart.getContents();
+angular.module('imageshopApp').controller('CartCtrl', function ($scope, ShoppingCart) {
+    $scope.cartItems = ShoppingCart.getContents();
+    $scope.cartItemsCount = ShoppingCart.getSize();
 
-    $scope.removeItem = function (id, item) {
-        var modalInstance = $modal.open({
-            templateUrl: '../views/cart/remove_modal.html',
-            controller: 'RemoveModalCtrl',
-            windowClass: 'verticaly-centered',
-            resolve: {
-                id: function () {
-                    return id;
-                }
-            }
-        });
-
-        modalInstance.result.then(function (id) {
-            console.log(id);
-        });
-    };
-})
-.controller('RemoveModalCtrl', function ($scope, $modalInstance, id) {
-
-    $scope.id = id;
-
-    $scope.ok = function () {
-        $modalInstance.close(id);
-    };
-
-    $scope.cancel = function () {
-        $modalInstance.dismiss('cancel');
-    };
+    $scope.toggleItem = function (item) {
+        var key = item.title;
+        if ($scope.deletedImages.hasOwnProperty(key)) {
+            ShoppingCart.addItem(item);
+            delete $scope.deletedImages[key];
+            $scope.cartItemsCount = ShoppingCart.getSize();
+        } else {
+            $scope.deletedImages[key] = key;
+            ShoppingCart.removeItem(key);
+            $scope.cartItemsCount = ShoppingCart.getSize();
+        }
+    }
 });

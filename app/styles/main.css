@@ -137,7 +137,9 @@ input {
 .image {
     float: left;
     margin-bottom: 20px;
-    background-color: white;
+    background-color: rgb(235,239,234);
+    border: 5px solid rgb(235,239,234);
+    box-shadow: 0 3px 9px rgba(0, 0, 0, 0.5);
 }
 
     .image img {
@@ -147,7 +149,7 @@ input {
     }
 
     .image:hover {
-        outline: 5px solid #337ab7;
+        border: 5px solid #337ab7;
     }
 
 .first-item {
@@ -208,10 +210,6 @@ input {
     padding-bottom: 20px;
 }
 
-.verticaly-centered .modal-dialog {
-    padding-top: 15% !important;
-}
-
 .remove-image {
     filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0\'/></filter></svg>#grayscale"); /* Firefox 10+, Firefox on Android */
     filter: grayscale(100%);
@@ -220,4 +218,24 @@ input {
     -o-filter: grayscale(100%);
     filter: gray; /* IE6-9 */
     -webkit-filter: grayscale(100%); /* Chrome 19+, Safari 6+, Safari 6+ iOS */
+    outline: 5px solid red;
+}
+
+.description {
+    position: relative;
+    margin: 20px;
+    font-family: gongnormal;
+    color: white;
+    margin-top: 0px;
+}
+
+.description.description-main {
+    color: black;
+    margin: 20px;
+    word-spacing: 8px;
+}
+
+.description.description-success {
+    margin: 20px;
+    z-index: 2;
 }
