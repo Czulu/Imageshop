@@ -1,15 +1,16 @@
 ﻿'use strict';
 
 angular.module('imageshopApp').factory('ShoppingCart', function () {
-    localStorage.imageShopCart = localStorage.imageShopCart || '{}';
+
+    localStorage.picturesShopCart = localStorage.picturesShopCart || '{}';
 
     return {
         getSize: function () {
-            var cart = JSON.parse(localStorage.imageShopCart);
+            var cart = JSON.parse(localStorage.picturesShopCart);
             return Object.keys(cart).length;
         },
         addItem: function (item) {
-            var cart = JSON.parse(localStorage.imageShopCart),
+            var cart = JSON.parse(localStorage.picturesShopCart),
                 key = item.title;
 
             //check if this item has not been already purchased
@@ -17,20 +18,20 @@ angular.module('imageshopApp').factory('ShoppingCart', function () {
                 return;
             } else {
                 cart[key] = item;
-                localStorage.imageShopCart = JSON.stringify(cart);
+                localStorage.picturesShopCart = JSON.stringify(cart);
             }
         },
         removeItem: function (id) {
-            var cart = JSON.parse(localStorage.imageShopCart),
+            var cart = JSON.parse(localStorage.picturesShopCart),
                 key = id.toString();
             delete cart[key];
-            localStorage.imageShopCart = JSON.stringify(cart);
+            localStorage.picturesShopCart = JSON.stringify(cart);
         },
         getContents: function () {
-            return JSON.parse(localStorage.imageShopCart);
+            return JSON.parse(localStorage.picturesShopCart);
         },
         clear: function () {
-            localStorage.imageShopCart = '{}';
+            localStorage.picturesShopCart = '{}';
         }
     };
 });

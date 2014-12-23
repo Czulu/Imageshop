@@ -24,15 +24,15 @@
 </nav>
 <div class="cart">
     <div class="description">Click image to remove or reinsert it or click checkout button to proceed</div>
-    <div class="img-container" image-grid=".image" image-grid-watcher="">
-        <div class="image" ng-repeat="item in cartItems track by $index" ng-click="toggleItem(item)">
-            <img alt="" src="../images/loading.gif" height="280"
-                 ng-src="{{item.url}}"
-                 ng-class="{'remove-image': !isActive, 'remove-image': isActive}"
-                 ng-init="isActive = false"
-                 ng-click="isActive = !isActive">
-            </img>
-        </div>
+    <div id="photos">
+        <img src="images/loading.gif"
+             ng-repeat="item in cartItems track by $index"
+             ng-click="toggleItem(item)"
+             ng-src="{{item.url}}"
+             ng-class="{'remove-image': !isActive, 'remove-image': isActive}"
+             ng-init="isActive = false"
+             ng-click="isActive = !isActive">
+        </img>
     </div>
 </div>
 <div class="background"></div>

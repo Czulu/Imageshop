@@ -35,10 +35,8 @@
     <div class="text-center">
         <dir-pagination-controls boundary-links="true" template-url="views/main/pagination_controls.html"></dir-pagination-controls>
     </div>
-    <div class="img-container" image-grid=".image" image-grid-watcher="searchResults">
-        <div class="image" dir-paginate="item in searchResults.data | itemsPerPage: 20" current-page="searchResults.currentPage" ng-click="openDetails(item)">
-            <img alt="" src="../images/loading.gif" ng-src="{{item.url}}" height="280"></img>
-        </div>
+    <div id="photos">
+        <img src="images/loading.gif" dir-paginate="item in searchResults.data | itemsPerPage: 20" current-page="searchResults.currentPage" ng-click="openDetails(item)" ng-src="{{item.url}}"></img>
     </div>
     <div class="text-center">
         <dir-pagination-controls boundary-links="true" template-url="views/main/pagination_controls.html"></dir-pagination-controls>
