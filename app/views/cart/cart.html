@@ -27,11 +27,10 @@
     <div id="photos">
         <img src="images/loading.gif"
              ng-repeat="item in cartItems track by $index"
-             ng-click="toggleItem(item)"
+             ng-click="toggleItem(item); isActive = !isActive"
              ng-src="{{item.url}}"
              ng-class="{'remove-image': !isActive, 'remove-image': isActive}"
-             ng-init="isActive = false"
-             ng-click="isActive = !isActive">
+             ng-init="isActive = false">
         </img>
     </div>
 </div>

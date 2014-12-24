@@ -23,3 +23,104 @@
     </div><!-- /.container-fluid -->
 </nav>
 <div class="background"></div>
+<div class="description description-checkout">Fill order form to finalize your purchase</div>
+<div class="purchase-form-background">
+    <div class="purchase-form">
+        <form class="form-horizontal" name="purchaseForm" novalidate ng-submit="submitOrder()">
+            <h4>Personal details</h4>
+            <div class="row">
+                <div class="col-md-6 ">
+                    <label class="control-label sr-only" for="first-name">First name</label>
+                    <input id="first-name" name="firstName" placeholder="First name" class="form-control input-md" required type="text" ng-model="Order.name">
+                    <span ng-show="purchaseForm.firstName.$invalid && purchaseForm.firstName.$dirty" class="help-block">Please enter your name</span>
+                </div>
+
+                <div class="col-md-6">
+                    <label class="control-label sr-only" for="textinput">Last name</label>
+                    <input id="last-name" name="lastName" placeholder="Last name" class="form-control input-md" required type="text" ng-model="Order.lastName">
+                    <span ng-show="purchaseForm.lastName.$invalid && purchaseForm.lastName.$dirty" class="help-block">Please enter your second name</span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-5 ">
+                    <label class="control-label sr-only" for="e-mail">E-mail</label>
+                    <input id="e-mail" name="email" placeholder="E-mail" class="form-control input-md" required type="email" ng-model="Order.email">
+                    <span ng-show="purchaseForm.email.$invalid && purchaseForm.email.$dirty" class="help-block">Please enter valid e-mail</span>
+                </div>
+            </div>
+            <h4>Adress of residence</h4>
+            <div class="row">
+                <div class="col-md-7 ">
+                    <label class="control-label sr-only" for="street">Street adress</label>
+                    <input id="street" name="street" placeholder="Street" class="form-control input-md" required type="text" ng-model="Order.street">
+                    <span ng-show="purchaseForm.street.$invalid && purchaseForm.street.$dirty" class="help-block">Please enter valid street name</span>
+                </div>
+                <div class="col-md-5">
+                    <label class="control-label sr-only" for="house-number">House number</label>
+                    <input id="house-number" name="houseNumber" placeholder="House number" class="form-control input-md" required type="number" ng-model="Order.houseNumber">
+                    <span ng-show="purchaseForm.houseNumber.$invalid && purchaseForm.houseNumber.$dirty" class="help-block">Please enter valid house number</span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-5 ">
+                    <label class="control-label sr-only" for="apartament-number">Apartament number</label>
+                    <input id="flat-number" name="flatNumber" placeholder="Flat number" class="form-control input-md" type="number" ng-model="Order.flatNumber">
+                    <span ng-show="purchaseForm.flatNumber.$invalid && purchaseForm.flatNumber.$dirty" class="help-block">Please enter valid flat number</span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-7 ">
+                    <label class="control-label sr-only" for="City">City of residence</label>
+                    <input id="City" name="city" placeholder="City" class="form-control input-md" required type="text" ng-model="Order.city">
+                    <span ng-show="purchaseForm.city.$invalid && purchaseForm.city.$dirty" class="help-block">Please enter city of residence</span>
+                </div>
+                <div class="col-md-5">
+                    <label class="control-label sr-only" for="postal-code">Postal code</label>
+                    <input placeholder="Postal code" id="postal-code" name="postalCode" class="form-control input-md" required type="number" ng-model="Order.postalCode">
+                    <span ng-show="purchaseForm.postalCode.$invalid && purchaseForm.postalCode.$dirty" class="help-block">Please enter valid postal code</span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-7 ">
+                    <label class="control-label sr-only" for="selectcountry">Country of residence</label>
+                    <select id="selectcountry" name="selectCountry" class="form-control" required ng-model="Order.country" ng-options="item for item in countries"></select>
+                    <span ng-show="purchaseForm.selectCountry.$invalid" class="help-block">Please select your country of residence</span>
+                </div>
+            </div>
+            <h4>Credit card data</h4>
+            <div class="row">
+                <div class="col-md-8 ">
+                    <label class="control-label sr-only" for="credit-card">Credit card number</label>
+                    <input id="credit-card" name="creditCard" placeholder="Credit card number" class="form-control input-md" required type="number" ng-model="Order.creditCard">
+                    <span ng-show="purchaseForm.creditCard.$invalid && purchaseForm.creditCard.$dirty" class="help-block">Please enter valid credit card number</span>
+                </div>
+
+                <div class="col-md-4">
+                    <label class="control-label sr-only" for="cvv">CVV number</label>
+                    <input id="cvv" name="cvv" placeholder="CVV" class="form-control input-md" required type="number" ng-model="Order.cvv">
+                    <span ng-show="purchaseForm.cvv.$invalid && purchaseForm.cvv.$dirty" class="help-block">Please enter valid credit card cvv number</span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 ">
+                    <label class="control-label sr-only" for="card-expiration-month">Credit card expiration month</label>
+                    <select id="card-expiration-month" name="cardExpirationMonth" class="form-control" required ng-model="Order.cardExpirationMonth" ng-options="item for item in months"></select>
+                    <span ng-show="purchaseForm.cardExpirationMonth.$invalid" class="help-block">Please select credit card expiration month</span>
+                </div>
+
+                <div class="col-md-6">
+                    <label class="control-label sr-only" for="card-expiration-year">Credit card expiration year</label>
+                    <select id="card-expiration-year" name="cardExpirationYear" class="form-control" required ng-model="Order.cardExpirationYear" ng-options="item for item in years"></select>
+                    <span ng-show="purchaseForm.cardExpirationYear.$invalid" class="help-block">Please select credit card expiration year</span>
+                </div>
+            </div>
+            <button id="purchase-submit-button"
+                    type="submit"
+                    name="purchase-submit-button"
+                    class="btn btn-success"
+                    ng-disabled="purchaseForm.$invalid">
+                Submit order
+            </button>
+        </form>
+    </div>
+</div>

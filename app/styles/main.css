@@ -28,6 +28,7 @@ html {
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
+    overflow-x:hidden;
 }
 
 .ng-scope {
@@ -59,7 +60,7 @@ html {
     border-radius: 0;
 }
 
-input {
+input, select {
     border-radius: 0px !important;
     font-family: architectsdaughter;
     font-weight: 900;
@@ -200,6 +201,10 @@ input {
         z-index: 2;
     }
 
+    .description.description-checkout {
+        margin: 20px;
+    }
+
 #photos {
     /* Prevent vertical gaps */
     line-height: 0;
@@ -264,4 +269,42 @@ input {
         -webkit-column-count: 1;
         column-count: 1;
     }
+}
+
+.purchase-form-background {
+    position: relative;
+    background-color: #19020a;
+    z-index: 1;
+}
+
+.purchase-form {
+    margin: 0 auto;
+    padding: 20px;
+    position: relative;
+    background-color: #1f2c35;
+    z-index: 1;
+    max-width: 560px; 
+}
+
+.form-horizontal input, .form-horizontal select {
+    margin-bottom: 10px;
+}
+
+.form-horizontal h4 {
+    color: white;
+    font-family: gongnormal;
+    font-size: 15px;
+}
+
+.form-horizontal button {
+    margin-top: 30px;
+}
+
+input[type='number'] {
+    -moz-appearance:textfield;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
 }
