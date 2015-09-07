@@ -1,4 +1,4 @@
-Prototype of internet shop with pictures made witd Angular.js. It uses Media Wiki as a backed substitute.
+Prototype of an online shop with pictures made with Angular.js framework. It uses Media Wiki api as a backend substitute.
 
 Install instructions:
 
